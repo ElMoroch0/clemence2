@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Projet 3D avec Python et Blender</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- MENU PRINCIPAL -->
+  <div id="mainMenu">
+      <h1>Bienvenue sur / “Sans-Titre” digital <br> experience </h1>
+      <button id="enterSceneBtn">
+         <img src="public/imagesite.jpg" alt="Entrer" class="btn-icon">
+      </button>
+      <h2>Cette page web à été réalisée d’après l’œuvre de l’artiste Clémence: “Sans-Titre”, 2025, ESAA Avignon. Avec les archives sonores originales et des écrits de la réalisatrice. Le travail de conception et mise en ligne d’un espace 3D digital par Saul.<br><br>Clémence LARDEUR / Saul INATY. </h2>
+  </div>
+
+  <!-- MENU PAUSE -->
+  <div id="menu">
+      <h2 class="menu-title">Menu</h2>
+      <h2 id="notesBtn" class="menu-title clickable">Notes</h2>
+      <button id="resumeBtn">Reprendre</button>
+      <button id="quitBtn">Quitter</button>
+  </div>
+
+  <!-- PANEL NOTES -->
+  <div id="notesPanel" class="hidden">
+      <div id="notesClose">✖</div>
+      <h3>Notes</h3>
+      <p>"Le projet est né d'un lieu abandonné. Il s'agit d'un espace oublié, effacé où tout semble encore respiré. J'ai voulou y prêter l'oreille, non pas pour raconter son histoire mais pour écouter ce qui reste. C'est un projet sur la persistance. Sur la maniere dont un lieu, les choses qui y habitent continue a parler même quand plus personne ne l'ecoute.<br></br>Mon Approche à été sensible et physique. J'ai ensuite écrits une série de textes polyphoniques où chaque voix parle depuis le lieu: une porte, une plante, la lumière, un doudou. Chaque textes est une tentative de donner la porte."<br></br>Clémence Lardeur.<br></br>Cette 1ère Aproche d'installation à été realisé à l'Ecole Superieure D'Art d'Avignon (ESAA), le 27/11/2025 </p>
+  </div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.154.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.154.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
