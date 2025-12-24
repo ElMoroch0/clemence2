@@ -6,17 +6,19 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib.js';
 //import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper.js';
 import { RectAreaLight } from 'three';
+
+const base = import.meta.env.BASE_URL;
 RectAreaLightUniformsLib.init();
 
 /* ------------------------------------------------------------
    AUDIO MAP (fichiers dans le dossier `sons/` à la racine publique)
    ------------------------------------------------------------ */
 const audioMap = {
-  "headphone_obj":   new Audio("sons/arrivee.mp3"),
-  "headphone_obj001": new Audio("sons/doudou_socle.mp3"),
-  "headphone_obj002": new Audio("sons/la_porte.mp3"),
-  "headphone_obj003": new Audio("sons/plante_socle.mp3"),
-  "headphone_obj004": new Audio("sons/lumiere.mp3")
+  "headphone_obj":   new Audio(`${base}sons/arrivee.mp3`),
+  "headphone_obj001": new Audio(`${base}sons/doudou_socle.mp3`),
+  "headphone_obj002": new Audio(`${base}sons/la_porte.mp3`),
+  "headphone_obj003": new Audio(`${base}sons/plante_socle.mp3`),
+  "headphone_obj004": new Audio(`${base}sons/lumiere.mp3`)
 };
 let currentAudio = null;
 let currentAudioObject = null;
@@ -63,7 +65,7 @@ const interactableMeshes = [];
 const originals = new Map(); // sauvegarde matériaux originaux
 
 gltfLoader.load(
-  '/scene.glb',
+   `${base}scene.glb`,
   (gltf) => {
     const model = gltf.scene;
     scene.add(model);
@@ -509,3 +511,4 @@ animate(); // on lance l'animation
 /* ------------------------------------------------------------
    Fin fichier
    ------------------------------------------------------------ */
+
