@@ -3,7 +3,7 @@
 
 import * as THREE from 'three';
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib.js';
+import { RectAreaLightUniformsLib } from "three/addons/lights/RectAreaLightUniformsLib.js";
 //import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper.js';
 import { RectAreaLight } from 'three';
 
@@ -510,6 +510,7 @@ animate(); // on lance l'animation
 /* ------------------------------------------------------------
    Fin fichier
    ------------------------------------------------------------ */
+
 
 
 
