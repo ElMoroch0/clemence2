@@ -7,7 +7,7 @@ import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLigh
 //import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper.js';
 import { RectAreaLight } from 'three';
 
-const base = import.meta.env.BASE_URL;
+const base = (import.meta?.env?.BASE_URL) ?? new URL('./', import.meta.url).href;
 RectAreaLightUniformsLib.init();
 
 /* ------------------------------------------------------------
@@ -511,4 +511,5 @@ animate(); // on lance l'animation
 /* ------------------------------------------------------------
    Fin fichier
    ------------------------------------------------------------ */
+
 
