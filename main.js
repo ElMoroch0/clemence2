@@ -155,17 +155,30 @@ const mouse = new THREE.Vector2();
    ------------------------------------------------------------ */
 async function envoyerAction(nomObjet, type = "click", valeur = null) {
   try {
-    const action = { objet: nomObjet, type, valeur };
-    const res = await fetch("http://127.0.0.1:8000/interaction", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(action)
-    });
-    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-    const data = await res.json();
-    console.log("Réponse API:", data);
+    const supabase = window.supabaseClient;
+    if (!supabase) {
+      console.warn("Supabase client non initialisé");
+      return;
+    }
+
+    const { data, error } = await supabase
+      .from("interactions")
+      .insert([
+        {
+          objet: nomObjet,
+          type: type,
+          valeur: valeur,
+          // tu peux aussi ajouter user_id plus tard si tu gères des utilisateurs
+        }
+      ]);
+
+    if (error) {
+      console.error("Erreur Supabase:", error);
+    } else {
+      console.log("Interaction enregistrée:", data);
+    }
   } catch (err) {
-    console.warn("Impossible de contacter le backend:", err);
+    console.warn("Erreur envoyerAction:", err);
   }
 }
 
@@ -510,6 +523,7 @@ animate(); // on lance l'animation
 /* ------------------------------------------------------------
    Fin fichier
    ------------------------------------------------------------ */
+
 
 
 
