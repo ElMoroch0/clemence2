@@ -41,7 +41,18 @@
     }
   }
   </script>
+  <script src="https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
+  <script>
+    // Remplace par TES vraies valeurs :
+    const SUPABASE_URL = "hhttps://hgbntfqrffraejagyauk.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_suro3nVpnhMPzm6_iGmN_g_cEz-UcV9";
+
+    // On crée le client Supabase et on le met sur window
+    window.supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  </script>
 
   <script type="module" src="main.js"></script>
 </body>
 </html>
+
