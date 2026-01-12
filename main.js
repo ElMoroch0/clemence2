@@ -185,6 +185,7 @@ async function testerClicksParObjet() {
     console.log("Clics par objet:", data);
   }
 }
+testerClicksParObjet();
 
 
 /* ------------------------------------------------------------
@@ -528,6 +529,7 @@ animate(); // on lance l'animation
 /* ------------------------------------------------------------
    Fin fichier
    ------------------------------------------------------------ */
+
 
 
 
