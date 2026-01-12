@@ -6,6 +6,12 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { RectAreaLightUniformsLib } from "three/addons/lights/RectAreaLightUniformsLib.js";
 //import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper.js';
 import { RectAreaLight } from 'three';
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+const SUPABASE_URL = "https://hgbntfqfrfraejagyauk.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_suro3nVpnhMPzm6_iGmN_g_cEz-UcV9";
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+console.log("Supabase OK");
 
 RectAreaLightUniformsLib.init();
 
@@ -155,22 +161,9 @@ const mouse = new THREE.Vector2();
    ------------------------------------------------------------ */
 async function envoyerAction(nomObjet, type = "click", valeur = null) {
   try {
-    const supabase = window.supabaseClient;
-    if (!supabase) {
-      console.warn("Supabase client non initialisé");
-      return;
-    }
-
     const { data, error } = await supabase
       .from("interactions")
-      .insert([
-        {
-          objet: nomObjet,
-          type: type,
-          valeur: valeur,
-          // tu peux aussi ajouter user_id plus tard si tu gères des utilisateurs
-        }
-      ]);
+      .insert([{ objet: nomObjet, type, valeur }]);
 
     if (error) {
       console.error("Erreur Supabase:", error);
@@ -181,6 +174,7 @@ async function envoyerAction(nomObjet, type = "click", valeur = null) {
     console.warn("Erreur envoyerAction:", err);
   }
 }
+
 
 /* ------------------------------------------------------------
    Gestion collision simple (ray devant la caméra)
@@ -523,6 +517,7 @@ animate(); // on lance l'animation
 /* ------------------------------------------------------------
    Fin fichier
    ------------------------------------------------------------ */
+
 
 
 
