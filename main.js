@@ -7,7 +7,7 @@ import { RectAreaLightUniformsLib } from "three/addons/lights/RectAreaLightUnifo
 //import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper.js';
 import { RectAreaLight } from 'three';
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-const SUPABASE_URL = "https://hgbntfqfrfraejagyauk.supabase.co";
+const SUPABASE_URL = "https://hgbntfqrffraejagyauk.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_suro3nVpnhMPzm6_iGmN_g_cEz-UcV9";
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -517,6 +517,7 @@ animate(); // on lance l'animation
 /* ------------------------------------------------------------
    Fin fichier
    ------------------------------------------------------------ */
+
 
 
 
