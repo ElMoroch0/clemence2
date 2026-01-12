@@ -174,6 +174,17 @@ async function envoyerAction(nomObjet, type = "click", valeur = null) {
     console.warn("Erreur envoyerAction:", err);
   }
 }
+async function testerClicksParObjet() {
+  const { data, error } = await supabase
+    .from("clicks_par_objet")
+    .select("*");
+
+  if (error) {
+    console.error("Erreur clicks_par_objet:", error);
+  } else {
+    console.log("Clics par objet:", data);
+  }
+}
 
 
 /* ------------------------------------------------------------
@@ -517,6 +528,7 @@ animate(); // on lance l'animation
 /* ------------------------------------------------------------
    Fin fichier
    ------------------------------------------------------------ */
+
 
 
 
